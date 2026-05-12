@@ -16,16 +16,16 @@ A non-interactive Linux user is a secure service account used to run application
 ### 3 Solution
 
 #### Step 1: Verify User Exists or Not
-	- id jim
-	- if Output will be - " id: 'jim': no such user "
+	- id kareem
+	- if Output will be - " id: 'kareem': no such user "
 	
 	
 #### Step 2: Create User with Non-Interactive Shell
-	- sudo useradd -s /sbin/nologin jim
+	- sudo useradd -s /sbin/nologin kareem
 	
 #### Step 3: Check the user 
-	- grep jim /etc/passwd
+	- grep kareem /etc/passwd
 	
 #### Step 4: Test the login behaviour
-	-  su - jim 
+	-  su - kareem 
 	- Output should be "This account is currently not available."
