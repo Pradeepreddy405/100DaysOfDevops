@@ -7,7 +7,7 @@
 - This follows the Principle of Least Privilege and reduces attack surface. For example, if a web application service account gets compromised, the attacker cannot obtain an interactive shell session on the server.
 
 
-### 2 Interview Explanation :
+### 2 Explanation :
 A non-interactive Linux user is a secure service account used to run applications (or) automation without allowing direct shell login, helping enforce least privilege and reduce server attack surface in production environments.
 
 
