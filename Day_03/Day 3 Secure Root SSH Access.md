@@ -17,33 +17,33 @@
 
 ### 3 Solution
 
-	### Step 1 : Login to jump host
-		ssh thor@jump_host
+ ### Step 1 : Login to jump host
+	ssh thor@jump_host
 		
-	### Step 2 : Login to the Application server
+ ### Step 2 : Login to the Application server
 		ssh tony@stapp01
 	
-	### Step 3 : Switch to root
+ ### Step 3 : Switch to root
 		sudo su -
 	
-	### Step 4 : Check current setting
+ ### Step 4 : Check current setting
 		grep -i PermitRootLogin /etc/ssh/sshd_config
 	
-	### Step 5 : Edit SSH config
+ ### Step 5 : Edit SSH config
 		vi /etc/ssh/sshd_config
 		
 		Change: " PermitRootLogin yes " to " PermitRootLogin no "
 	
-	### Step 6 : Validate config
+ ### Step 6 : Validate config
 		sshd -t
 	
-	### Step 7 : Restart SSH service
+ ### Step 7 : Restart SSH service
 		- systemctl restart sshd
 	
-	### Step 8 : verify the changes
+ ### Step 8 : verify the changes
 		- grep -i PermitRootLogin /etc/ssh/sshd_config
 
-	### Step 9 : Repeat the for the rest of the servers 
+ ### Step 9 : Repeat the for the rest of the servers 
 		- stapp02
 		- stapp03
 
