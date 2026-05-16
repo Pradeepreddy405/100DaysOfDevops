@@ -53,16 +53,5 @@ chmod = change mode
 	- execute (x)
 
 
-
-- Section		Meaning
--  =====    =================
--  wx		Owner permissions
--  r-x		Group permissions
--  --		Others permissions
-
-
----
-
-
 ## 4 By doing this task ?
 Script execution permissions are configured to ensure automation files can run securely and correctly. Linux uses execute permissions to control whether a file is allowed to run as a program or script. Proper permission management reduces operational failures and prevents unauthorized execution of sensitive scripts.
