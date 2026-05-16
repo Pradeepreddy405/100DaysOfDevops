@@ -55,10 +55,10 @@ chmod = change mode
 
 
 - Section		Meaning
--  =======     =================
--  wx			Owner permissions
--  r-x			Group permissions
--  --			Others permissions
+-  =====    =================
+-  wx		Owner permissions
+-  r-x		Group permissions
+-  --		Others permissions
 
 
 ---
