@@ -37,30 +37,27 @@
 
 ## 3 Solution
 
- ### Step 1 : Login to jump host
-	ssh banner@jump_host
-	
- ### Step 2 : Login to App Server 3
+ ### Step 1 : Login to App Server 3
 	ssh banner@stapp03
 	
- ### Step 3 : Install SELinux packages
+ ### Step 2 : Install SELinux packages
 	sudo yum install -y selinux-policy selinux-policy-targeted policycoreutils
 	
- ### Step 4 : Open SELinux config file
+ ### Step 3 : Open SELinux config file
 	sudo vi /etc/selinux/config
 	
- ### Step 5 : Change SELinux mode
+ ### Step 4 : Change SELinux mode
 	Find:
 		SELINUX=enforcing (OR) SELINUX=permissive
 
 	Change to:
 		SELINUX=disabled
 		
- ### Step 6 : Save and exit
+ ### Step 5 : Save and exit
 	In vi:
 	:wq
 
- ### Step 7 : Verify configuration
+ ### Step 6 : Verify configuration
 	grep SELINUX /etc/selinux/config
 
 	Expected output:
