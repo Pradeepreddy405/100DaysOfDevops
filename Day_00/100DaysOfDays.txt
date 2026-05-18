@@ -60,5 +60,4 @@ Excited for the journey ahead.
 
 
 
-#DevOps #CloudComputing #Linux #Docker #Kubernetes #AWS #Terraform #Jenkins #Automation #LearningInPublic #TechCareer #KodeKloud #100DaysOfDevOps
-
+#DevOps #CloudComputing #Linux #Docker #Kubernetes #AWS #Terraform #Jenkins #Automation #LearningInPublic #TechCareer #KodeKloud #100DaysOfDevOps #DevSecOps
