@@ -25,33 +25,33 @@
 	
 ## 3 Solution
 
-	### Step 1: SSH into App Servers (stapp01, stapp02, stapp03)
+ ### Step 1: SSH into App Servers (stapp01, stapp02, stapp03)
 		- ssh tony@stapp01
 
-	### Step 2: Switch to root user
+ ### Step 2: Switch to root user
 		- sudo su -
  
-	### Step 3: Check if package is available
+ ### Step 3: Check if package is available
 		- dnf search cronie
 		- yum list available | grep cronie
  
-	### Step 4: Install cronie
+ ### Step 4: Install cronie
 		- sudo yum install -y cronie
 
 
-	### Step 5: Start and enable crond service
+ ### Step 5: Start and enable crond service
 		- sudo systemctl enable crond
 		- sudo systemctl start crond
 
-	### Step 6: Configure Cron Job and Open root crontab to add cron entry
+ ### Step 6: Configure Cron Job and Open root crontab to add cron entry
 		- crontab -e
 		- */5 * * * * echo hello > /tmp/cron_text
 		- Save and Quit from editor
  
-	### Step 7: Verify cron entry
+ ### Step 7: Verify cron entry
 		- crontab -l
  
-	### Step 8: Verify cron execution
+ ### Step 8: Verify cron execution
 		- cat /tmp/cron_text
  
-	### Step 9: Repeat the same steps for remaining application servers
+ ### Step 9: Repeat the same steps for remaining application servers
