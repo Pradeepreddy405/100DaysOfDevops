@@ -1,0 +1,64 @@
+𝗦𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗺𝘆 #𝟭𝟬𝟬𝗗𝗮𝘆𝘀𝗢𝗳𝗗𝗲𝘃𝗢𝗽𝘀 𝗷𝗼𝘂𝗿𝗻𝗲𝘆 𝘄𝗶𝘁𝗵 " 𝗞𝗼𝗱𝗲𝗞𝗹𝗼𝘂𝗱! "
+
+
+
+Today I officially begin a 100-day challenge focused on building real DevOps and Cloud engineering skills through hands-on practice.
+
+
+
+Over the next 100 days, I’ll be working on:
+
+1   Linux
+
+2   Git & GitHub
+
+3   Shell Scripting
+
+4   Docker
+
+5   Kubernetes
+
+6   Jenkins
+
+7   Terraform
+
+8   CI/CD Pipelines
+
+9   Monitoring & Automation
+
+10 Cloud & DevOps fundamentals
+
+
+
+𝗠𝘆 𝗴𝗼𝗮𝗹 𝗶𝘀 𝘀𝗶𝗺𝗽𝗹𝗲:
+
+Build consistency, improve problem-solving skills, and create real-world projects instead of just consuming tutorials.
+
+
+
+𝗜’𝗹𝗹 𝗯𝗲 𝘀𝗵𝗮𝗿𝗶𝗻𝗴:
+
+- Daily progress
+
+- Labs & challenges
+
+- Troubleshooting lessons
+
+- Scripts & automation tasks
+
+- Key learnings from each day
+
+
+
+This is not about completing a trend.
+
+𝗜𝘁’𝘀 𝗮𝗯𝗼𝘂𝘁 𝗯𝗲𝗰𝗼𝗺𝗶𝗻𝗴 𝗯𝗲𝘁𝘁𝗲𝗿 𝗲𝘃𝗲𝗿𝘆 𝘀𝗶𝗻𝗴𝗹𝗲 𝗱𝗮𝘆 𝘁𝗵𝗿𝗼𝘂𝗴𝗵 𝗱𝗶𝘀𝗰𝗶𝗽𝗹𝗶𝗻𝗲𝗱 𝗲𝘅𝗲𝗰𝘂𝘁𝗶𝗼𝗻.
+
+
+
+Excited for the journey ahead. 
+
+
+
+#DevOps #CloudComputing #Linux #Docker #Kubernetes #AWS #Terraform #Jenkins #Automation #LearningInPublic #TechCareer #KodeKloud #100DaysOfDevOps
+

@@ -1,4 +1,4 @@
-### Day 3: Cron Job Setup and Service Management
+### Day 6: Cron Job Setup and Service Management
 
 ### 1 Explanation
 	- This task is about automating repetitive tasks in Linux using cron jobs.
