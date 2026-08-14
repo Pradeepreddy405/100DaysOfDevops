@@ -3,53 +3,85 @@
 
 ## 1 Concept Explanation
 
- - Ansible is an IT automation tool used to configure servers, deploy applications, automate repetitive tasks, manage infrastructure, orchestrate systems.
- - It works mainly over SSH.
- - Instead of manually SSHing into 50 Linux servers to run commands like sudo yum update or sudo yum install <package>, tools like Ansible can automate the process across all servers simultaneously, reducing operational time, minimizing human errors, and ensuring configuration consistency.
- - Under the hood, Ansible follows an agentless architecture. Instead of installing agents on every server, the Ansible controller node connects to managed nodes mainly through SSH, transfers lightweight execution modules temporarily, executes tasks using Python on the target systems, collects the output, and removes temporary files automatically.
- - One of the biggest advantages of Ansible is its idempotent execution model. That means if the desired state is already achieved, Ansible does not make unnecessary changes. This helps maintain infrastructure consistency and prevents configuration drift across large-scale environments.
-
+ - MariaDB is a relational database server used to store and manage structured data for applications.
+ - It runs as a background service (mariadbd) and depends heavily on correct Linux permissions, filesystem paths, and system service configuration.
+ - When MariaDB fails to start, it is almost never “random”. It is usually caused by:
+ - Incorrect file or directory permissions
+ - Missing runtime directories like /run/mariadb
+ - Corrupted or locked PID files
+ - Wrong ownership of /var/lib/mysql
+ - Service misconfiguration or leftover stale process state
+ - The server must be able to:
+	- Create a PID file (process tracking file)
+	- Write to runtime directories
+	- Access data directory with correct mysql ownership
+	- Mostly: if MariaDB doesn’t start, 90% of the time it’s a permission or filesystem problem, not the database engine itself.
 
 
 ## 2 Task
 
-- During the weekly meeting, the Nautilus DevOps team discussed about the automation and configuration management solutions that they want to implement. While considering several options, the team has decided to go with Ansible for now due to its simple setup and minimal pre-requisites. The team wanted to start testing using Ansible, so they have decided to use jump host as an Ansible controller to test different kind of tasks on rest of the servers.
-
-- Install ansible version 4.10.0 on Jump host using pip3 only. Make sure Ansible binary is available globally on this system, i.e all users on this system are able to run Ansible commands.
-
+The Nautilus DevOps team is facing a production outage where the application cannot connect to the database.
+Investigation shows that the MariaDB service on the database server is down.
+The objective is to bring the service back online by identifying and fixing the root cause.
+You are required to:
+	- Troubleshoot why MariaDB service is failing to start
+	- Fix permission or directory-related issues
+	- Ensure the service starts successfully
+	- Verify database service status after fix
 ## 3 Solution
 
-		
- ### Step 1 : Switch to root user
-	- sudo su -
+ ### Step 0 : SSH into Database server
+	- ssh peter@stdb01
+
+ ### Step 1: Check service status
+	- First confirm what exactly is broken:
+		- systemctl status mariadb
+		- If it shows failed, do not restart blindly. Always inspect logs first.
  
- ### Step 2 : Verify python3 installed or not . If not installed go with installation process
-	- python3 --version
-	
- ### Step 3 : Verify pip3 installed or not 
-	- pip3 --version
+ ### Step 2: Check detailed logs
+	- journalctl -xeu mariadb
+	- Look for errors like:
+		- Can't create/write to file '/run/mariadb/mariadb.pid'
+		- Permission denied
+		- Missing directory
+ 
+ ### Step 3: Identify runtime directory issue
+	- Most common root cause:
+		- ls -ld /run/mariadb
+		- If directory does not exist or ownership is wrong, MariaDB cannot start.
+ 
+ ### Step 4: Fix runtime directory
+	- mkdir -p /run/mariadb
+	- chown mysql:mysql /run/mariadb
+	- chmod 755 /run/mariadb
+	- This ensures MariaDB can create PID and socket files.
+ 
+ ### Step 5: Fix data directory ownership (if needed)
+	- chown -R mysql:mysql /var/lib/mysql
+	- Wrong ownership here will silently break startup.
+ 
+ ### Step 6: Remove stale PID file (if exists)
+	- rm -f /run/mariadb/mariadb.pid
+	- Stale PID files confuse the service into thinking it is already running.
+ 
+ ### Step 7: Start MariaDB service
+	- systemctl start mariadb
+ 
+ ### Step 8: Verify service status
+	- systemctl status mariadb
+	- You should see: active (running)
+ 
+ ### Step 9: Confirm database access
+	- mysql -u root -p
+	- If login works, service is fully restored.		
 
- ### Step 4 : Check whether Ansible is already installed
-	- ansible --version
-
-	
- ### Step 5 : Install Ansible 4.10.0 globally using pip3 
-	- pip3 install ansible==4.10.0
-	
- ### Step 6 : Verify installed version
-	- ansible --version
-	- pip3 show ansible
 
 
 ### 4 By doing this task ?
- - After achieving this task, the Jump Host becomes an Ansible controller machine that can automate tasks on multiple Linux servers from one place.
-
- - Now instead of manually logging into each server one by one, we can use Ansible to:
-	- Install packages
-	- Update servers
-	- Configure services
-	- Create users
-	- Restart applications
-	- Manage infrastructure
-
-- across many servers simultaneously using SSH.
+	- You learn the real reason production databases fail: filesystem and permission issues, not “mystery errors”.
+	- You gain control over MariaDB service recovery instead of guessing.
+	- You can now confidently:
+	- Recover crashed database services
+	- Fix permission-related startup failures
+	- Validate system-level dependencies before restarting services
+	- if you cannot fix /run and ownership issues, you cannot operate databases in real production environments.

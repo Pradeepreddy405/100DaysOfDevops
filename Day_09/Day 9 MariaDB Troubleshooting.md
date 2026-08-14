@@ -1,13 +1,8 @@
-## Day 8: Install Ansible
+## Day 9 MariaDB Troubleshooting
 
 
 ## 1 Concept Explanation
 
- - Ansible is an IT automation tool used to configure servers, deploy applications, automate repetitive tasks, manage infrastructure, orchestrate systems.
- - It works mainly over SSH.
- - Instead of manually SSHing into 50 Linux servers to run commands like sudo yum update or sudo yum install <package>, tools like Ansible can automate the process across all servers simultaneously, reducing operational time, minimizing human errors, and ensuring configuration consistency.
- - Under the hood, Ansible follows an agentless architecture. Instead of installing agents on every server, the Ansible controller node connects to managed nodes mainly through SSH, transfers lightweight execution modules temporarily, executes tasks using Python on the target systems, collects the output, and removes temporary files automatically.
- - One of the biggest advantages of Ansible is its idempotent execution model. That means if the desired state is already achieved, Ansible does not make unnecessary changes. This helps maintain infrastructure consistency and prevents configuration drift across large-scale environments.
 
 
 
