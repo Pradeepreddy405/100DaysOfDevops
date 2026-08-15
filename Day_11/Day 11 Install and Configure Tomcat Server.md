@@ -1,6 +1,6 @@
 # Tomcat Installation, Port Configuration & ROOT.war Deployment
 
-## 📌 Task Overview
+## Task Overview
 
 The **Nautilus application development team** has completed the beta version of a Java-based application and wants to deploy it on **App Server 1** in the **Stratos DC** environment.
 
@@ -21,7 +21,7 @@ The application server selected is **Apache Tomcat**.
 
 ---
 
-# 🏗️ Environment
+# Environment
 
 ```text
                     Stratos DC
