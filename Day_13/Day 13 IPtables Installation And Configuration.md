@@ -1,6 +1,6 @@
 # 🔥 IPTables Configuration – Apache Port 5000
 
-## 📌 Task
+##  Task
 
 The Nautilus infrastructure had Apache running on port `5000` on all application servers.
 
@@ -13,7 +13,7 @@ The security requirement was:
 
 ---
 
-# 🏗️ Architecture
+#  Architecture
 
 ```text
                     ┌─────────────────────┐
