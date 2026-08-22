@@ -402,8 +402,3 @@ SHOW GRANTS FOR 'kodekloud_tim'@'localhost';
 - Verification and Validation
 
 ---
-
-**Lab:** KodeKloud Engineer — Nautilus Infrastructure  
-**Day:** 18  
-**Topic:** Install and Configure DB Server  
-**Technology:** MariaDB / Linux
